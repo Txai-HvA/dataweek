@@ -10,14 +10,14 @@ export const CircleMask = () => {
             //Decrease the radius in /// seconds
             const interval = setInterval(() => {
                 //If radius is bellow ///, stop
-                if(radius < 400) {
+                if(radius < 500) {
                     clearInterval(interval);
                 } else {
                     radius = radius - 50;
                     setRadius(radius);
                 }
             }, 100);
-        }, 4000);
+        }, 37000);
     }, []);
 
     //Creates circleMask component
@@ -26,7 +26,7 @@ export const CircleMask = () => {
             <svg className={"circleMask"}>
                 <defs>
                     <clipPath id="clip">
-                        <circle cx="400" cy="400" r={radius} />
+                        <circle cx="420" cy="400" r={radius} />
                     </clipPath>
                 </defs>
             </svg>

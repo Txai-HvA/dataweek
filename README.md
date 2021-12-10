@@ -23,6 +23,7 @@ Use `$ npm start` to start the application.
 -   Node.js
 -   React
 -   d3
+-   ReactPlayer
 
 ## License
 

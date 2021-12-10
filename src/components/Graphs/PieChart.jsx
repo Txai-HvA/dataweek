@@ -7,14 +7,14 @@ export const PieChart = ({ title, data }) => {
         //Show the charts once the timing on the video is right
         setTimeout(() => {
             createPieChart(data);
-        }, 0);
+        }, 40000);
     }, []);
 
     const createPieChart = (data) => {
         let width = 600;
         let height = 350;
         //The radius of the pieplot is half the width or half the height (smallest one)
-        let outerRadius = Math.min(300, 300) / 2;
+        let outerRadius = Math.min(250, 250) / 2;
 
         //Creates new svg
         const svg = d3
@@ -29,18 +29,18 @@ export const PieChart = ({ title, data }) => {
         svg.append('text')
             .attr('id', 'pieChartTitle')
             .attr('x', 0)
-            .attr('y', -160)
+            .attr('y', -140)
             .text(title);
 
         //Descriptiopn
         svg.append('text')
             .attr('id', 'pieChartDescr')
             .attr('x', 0)
-            .attr('y', 170)
+            .attr('y', 145)
             .html(
-                `Geschat is dat ${data[0].estAmount}/${
+                `~${data[0].estAmount}/${
                     data[0].estAmount + data[1].estAmount
-                } van het aantal op onze trajecten`
+                } van aantal reizigers op ons traject`
             );
 
         //Creates the circle
@@ -68,7 +68,7 @@ export const PieChart = ({ title, data }) => {
             .append('text')
             .transition()
             .delay((d, i) => i * 500)
-            .text((d) => d.data.obsAmount)
+            .text((d) => d.data.obsAmount + ' ' + d.data.type)
             .style('fill', '#ffffff')
             .attr('transform', (d) => `translate(${arcGenerator.centroid(d)})`); //used to compute the midpoint of the centerline of the arc
     };
